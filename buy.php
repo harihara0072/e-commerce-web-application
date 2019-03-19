@@ -23,7 +23,7 @@ tr:nth-child(odd) {
 session_start();
 error_reporting(E_ALL);
 ini_set('display_errors','On');
-$xmlstr = file_get_contents('http://sandbox.api.ebaycommercenetwork.com/publisher/3.0/rest/GeneralSearch?apiKey=78b0db8a-0ee1-4939-a2f9-d3cd95ec0fcc&trackingId=7000610&keyword=samsung+i7');
+$xmlstr = file_get_contents('http://sandbox.api.ebaycommercenetwork.com/publisher/3.0/rest/GeneralSearch?apiKey='Your API KEY here'&trackingId=7000610&keyword=samsung+i7');
 $xml = new SimpleXMLElement($xmlstr);
 class shopping_cart {
 	var $p_id;
@@ -83,7 +83,7 @@ $total_price=0;
 			<label>Category:
 				<select name="category" value="72">
 					<?php
-					$xmlstr1 = file_get_contents('http://sandbox.api.ebaycommercenetwork.com/publisher/3.0/rest/CategoryTree?apiKey=78b0db8a-0ee1-4939-a2f9-d3cd95ec0fcc&visitorUserAgent&visitorIPAddress&trackingId=7000610&categoryId=72&showAllDescendants=true');
+					$xmlstr1 = file_get_contents('http://sandbox.api.ebaycommercenetwork.com/publisher/3.0/rest/CategoryTree?apiKey='Your API KEY here'&visitorUserAgent&visitorIPAddress&trackingId=7000610&categoryId=72&showAllDescendants=true');
 					//header('Content-Type: text/xml');
 					$xml1 = new SimpleXMLElement($xmlstr1);
 					echo "<option value='".$xml1->category['id']."' selected='selected'>".$xml1->category->name."</option>";
@@ -110,7 +110,7 @@ $total_price=0;
 			if(isset($_GET['category']) && isset($_GET['search'])){
 				$c_id = $_GET['category'];
 				$search = $_GET['search'];
-				$xmlstr2 = file_get_contents('http://sandbox.api.ebaycommercenetwork.com/publisher/3.0/rest/GeneralSearch?apiKey=78b0db8a-0ee1-4939-a2f9-d3cd95ec0fcc&trackingId=7000610&categoryId='.$c_id.'&keyword='.$search.'&numItems=20');
+				$xmlstr2 = file_get_contents('http://sandbox.api.ebaycommercenetwork.com/publisher/3.0/rest/GeneralSearch?apiKey='Your API KEY here'&trackingId=7000610&categoryId='.$c_id.'&keyword='.$search.'&numItems=20');
 				$xml2 = new SimpleXMLElement($xmlstr2);
 				foreach($xml2->categories as $test){
 					if($test['matchedCategoryCount'] == 0){
